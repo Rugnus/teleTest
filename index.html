@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tele2 Header</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header__inner">
+            <img src="./static/logo.svg" alt="Tele2 Logo" />
+            <div class="header__right">
+                <div class="header__location">
+                    <img src="./static/location.svg" alt="Location Icon">
+                    <span>Москва и область</span>
+                </div>
+                <div class="header__notification">
+                    <img src="./static/notification.svg" alt="Notification Icon">
+                </div>
+                <div class="header__menu-icon" id="menuIcon" style="cursor: pointer">
+                    <img src="./static/hamburger.svg" alt="Menu Icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__header">
+            <img src="./static/logo.svg" alt="Tele2 Logo" />
+            <div class="close-icon" id="closeIcon">&times;</div>
+        </div>
+        <div class="mobile-menu__links">
+            <a href="#">Преимущества Tele2</a>
+            <a href="#">Тарифы</a>
+            <a href="#">Акции и спецпредложения</a>
+            <a href="#">Промотариф Tele2</a>
+            <a href="#">Технология eSIM</a>
+            <a href="#">Подключение нового абонента</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="nav">
+            <a href="#" class="active">Преимущества Tele2</a>
+            <a href="#">Тарифы</a>
+            <a href="#">Акции и спецпредложения</a>
+            <a href="#">Промотариф Tele2</a>
+            <a href="#">Технология eSIM</a>
+            <a href="#">Подключение нового абонента</a>
+        </div>
+    </div>
+    
+
+    <script>
+
+        const menuIcon = document.getElementById("menuIcon");
+        const closeIcon = document.getElementById("closeIcon");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuLinks = document.querySelector(".mobile-menu__links");
+        const mobileLinks = mobileMenuLinks.querySelectorAll("a");
+        const nav = document.querySelector(".nav")
+        const links = nav.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("click", function() {
+                links.forEach(l => l.classList.remove("active"));
+                this.classList.add("active");
+            })
+        })
+
+        menuIcon.addEventListener("click", () => {
+            mobileMenu.style.display = "block";
+        });
+
+        closeIcon.addEventListener("click", () => {
+            mobileMenu.style.display = "none";
+        });
+
+    </script>
+
+</body>
+
+</html>
